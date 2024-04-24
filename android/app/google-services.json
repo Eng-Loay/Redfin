@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "743637776575",
+    "project_id": "red-fin",
+    "storage_bucket": "red-fin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743637776575:android:5ff6a9a730161d44b72e0a",
+        "android_client_info": {
+          "package_name": "com.example.red_fin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743637776575-57gseqg2nmfkgj2qhj5mdp0vf7c55umo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.red_fin",
+            "certificate_hash": "984c53a7c943b35a4c7c39a1dadb5fbca935140b"
+          }
+        },
+        {
+          "client_id": "743637776575-2rul4knchlb9nl3apl303b7c7hv7i5hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxhLDyi3fzOq6VEj0QObh-dK3jq0WIN1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743637776575-2rul4knchlb9nl3apl303b7c7hv7i5hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
