@@ -75,13 +75,48 @@ class _LoginState extends State<Login> {
                   }),
 
                   Container(height: 10,),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10,bottom: 20),
-                    alignment: Alignment.topRight,
-                    child: const Text(
-                      "Forgot Password ?",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 14),),
+                  InkWell(
+                    onTap: ()async{
+                    if(email.text == "")
+                      {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.warning,
+                          animType: AnimType.rightSlide,
+                          title: 'warning',
+                          desc: 'Please Write Your Email Then Enter Forget Password',
+                        ).show();
+                        return ;
+                      }
+                    try{
+                      await FirebaseAuth.instance.sendPasswordResetEmail(email:email.text );
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.success,
+                        animType: AnimType.rightSlide,
+                        title: 'success',
+                        desc: 'A link has been sent to reset the password',
+                      ).show();
+                    }catch(e){
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.error,
+                        animType: AnimType.rightSlide,
+                        title: 'Error',
+                        desc: 'Please make sure that the email entered is correct',
+                      ).show();
+                    }
+
+
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 10,bottom: 20),
+                      alignment: Alignment.topRight,
+                      child: const Text(
+                        "Forgot Password ?",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 14),),
+                    ),
                   ),
 
                 ],
