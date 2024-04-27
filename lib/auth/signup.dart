@@ -63,15 +63,7 @@ class _SignUpState extends State<SignUp> {
                     }
                   }),
 
-                  Container(height: 10,),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10,bottom: 20),
-                    alignment: Alignment.topRight,
-                    child: const Text(
-                      "Forgot Password ?",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 14),),
-                  ),
+                  Container(height: 30,),
 
                 ],
 

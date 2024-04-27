@@ -5,6 +5,7 @@ import 'package:red_fin/contact.dart';
 import 'package:stroke_text/stroke_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'about.dart';
 import 'auth//login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -301,11 +302,14 @@ class _LandingPageState extends State<LandingPage> {
                             color: Colors.black,
                           ),
                           child: GestureDetector(
-                            onTap: () {
+                            onTap: ()
+                            {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const SignUp()),
-                              );                          },
+                              );
+                              }
+                            ,
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.black,
@@ -359,8 +363,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.info),
             title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const About()),
+              );            },
           ),
           ListTile(
             leading: const Icon(Icons.local_offer),
