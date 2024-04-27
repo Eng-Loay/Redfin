@@ -48,359 +48,361 @@ class ForSale extends StatelessWidget {
             ,
           ],
         ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(height: 20,),
-            Row(
-
-              children: [
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home1.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(height: 20,),
+              Row(
+        
+                children: [
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home1.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: 55,),
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home2.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                  SizedBox(width: 25,),
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home2.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 25,),
-            Row(
-              children: [
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home3.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                ],
+              ),
+              SizedBox(height: 25,),
+              Row(
+                children: [
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home3.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: 55,),
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home4.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                  SizedBox(width: 25,),
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home4.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 25,),
-            Row(
-              children: [
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home5.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                ],
+              ),
+              SizedBox(height: 25,),
+              Row(
+                children: [
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home5.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: 55,),
-                Container(
-                  width: 176,
-                  height: 227,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset('images/Home6.png',fit: BoxFit.cover,),
-                      Row(
-                        children: [
-                          Text(
-                            '\$1\,800\,000',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                  SizedBox(width: 25,),
+                  Container(
+                    width: 190,
+                    height: 237,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset('images/Home6.png',fit: BoxFit.cover,),
+                        Row(
+                          children: [
+                            Text(
+                              '\$1\,800\,000',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40,),
-                          GestureDetector(
-                            onTap: () {
-                              // Add tap functionality here
-                            },
-                            child: SvgPicture.asset(
-                              'images/share_icon.svg',
-                              width:
-                              20.46,
-                              height:
-                              21.2,
+                            SizedBox(width: 40,),
+                            GestureDetector(
+                              onTap: () {
+                                // Add tap functionality here
+                              },
+                              child: SvgPicture.asset(
+                                'images/share_icon.svg',
+                                width:
+                                20.46,
+                                height:
+                                21.2,
+                              ),
                             ),
+                            SizedBox(width: 2,),
+                            Icon(Icons.favorite_border)
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 Bed 5 Bath',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(width: 2,),
-                          Icon(Icons.favorite_border)
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '4 Bed 5 Bath',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        '207 W Clarendon Ave Unit 3D',
-                        style: TextStyle(
-                          fontSize: 12,
+                        SizedBox(height: 8),
+                        Text(
+                          '207 W Clarendon Ave Unit 3D',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
       drawer:NavigationDrawer() ,

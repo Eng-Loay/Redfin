@@ -198,13 +198,15 @@ class _LandingPageState extends State<LandingPage> {
                     children: [
                       GestureDetector(
                         onTap: () async {
-                          const url = 'https://www.facebook.com/redfin';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
+                          final url = Uri.parse('https://www.facebook.com/redfin');
+                          Future<void> _launchUrl() async {
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
                           }
-                        },
+                          await _launchUrl();
+                        }
+                        ,
                         child: MouseRegion(
                           cursor: SystemMouseCursors.click,
                           child: Image.asset(
@@ -215,12 +217,13 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       GestureDetector(
                         onTap: () async {
-                          const url = 'https://www.instagram.com/redfinrealestate/';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
+                          final url = Uri.parse('https://www.instagram.com/redfinrealestate');
+                          Future<void> _launchUrl() async {
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
                           }
+                          await _launchUrl();
                         },
                         child: MouseRegion(
                           cursor: SystemMouseCursors.click,
@@ -232,12 +235,13 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       GestureDetector(
                         onTap: () async {
-                          const url = 'https://twitter.com/Redfin';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
+                          final url = Uri.parse('https://twitter.com/Redfin');
+                          Future<void> _launchUrl() async {
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
                           }
+                          await _launchUrl();
                         },
                         child: MouseRegion(
                           cursor: SystemMouseCursors.click,
@@ -249,12 +253,13 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       GestureDetector(
                         onTap: () async {
-                          const url = 'https://www.youtube.com/@redfin';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
+                          final url = Uri.parse('https://www.youtube.com/@redfin');
+                          Future<void> _launchUrl() async {
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
                           }
+                          await _launchUrl();
                         },
                         child: MouseRegion(
                           cursor: SystemMouseCursors.click,
