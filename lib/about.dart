@@ -6,6 +6,7 @@ import 'package:stroke_text/stroke_text.dart';
 import 'contact.dart';
 import 'forsale.dart';
 import 'landing.dart';
+import 'offers.dart';
 
 class About extends StatelessWidget {
   const About({super.key});
@@ -143,8 +144,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.price_check),
             title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Offers()),
+              );            },
           ),
           ListTile(
             leading: const Icon(Icons.contact_page),

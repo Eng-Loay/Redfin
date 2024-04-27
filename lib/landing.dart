@@ -10,6 +10,8 @@ import 'about.dart';
 import 'auth//login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'offers.dart';
+
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
@@ -379,11 +381,14 @@ class NavigationDrawer extends StatelessWidget {
               );             },
           ),
           ListTile(
-            leading: const Icon(Icons.article),
-            title: const Text('News',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            leading: const Icon(Icons.price_check),
+            title: const Text('For Sales',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Offers()),
+              );
+              },
           ),
           ListTile(
             leading: const Icon(Icons.contact_page),

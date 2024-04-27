@@ -5,6 +5,8 @@ import 'forsale.dart';
 import 'landing.dart'; // Import the LandingPage if not already imported
 import 'package:url_launcher/url_launcher.dart';
 
+import 'offers.dart';
+
 void main() {
   runApp(const Contact());
 }
@@ -167,8 +169,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.price_check),
             title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Offers()),
+              );            },
           ),
           ListTile(
             leading: const Icon(Icons.contact_page),
