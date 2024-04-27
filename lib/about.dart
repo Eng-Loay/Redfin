@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 import 'contact.dart';
+import 'forsale.dart';
 import 'landing.dart';
 
 class About extends StatelessWidget {
@@ -112,7 +113,6 @@ class NavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            tileColor: Colors.red,
             onTap: () {
               Navigator.push(
                 context,
@@ -123,6 +123,7 @@ class NavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.info),
             title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            tileColor: Colors.red,
             onTap: () {
               Navigator.push(
                 context,
@@ -133,12 +134,14 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.local_offer),
             title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ForSale()),
+              );             },
           ),
           ListTile(
-            leading: const Icon(Icons.article),
-            title: const Text('News',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            leading: const Icon(Icons.price_check),
+            title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
               Navigator.pop(context);
             },

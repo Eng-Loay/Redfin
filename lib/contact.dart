@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stroke_text/stroke_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'forsale.dart';
 import 'landing.dart'; // Import the LandingPage if not already imported
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(Contact());
+  runApp(const Contact());
 }
 
 class Contact extends StatelessWidget {
@@ -35,7 +36,7 @@ class Contact extends StatelessWidget {
         body: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('images/contact.jpg'),
                   fit: BoxFit.cover,
@@ -46,11 +47,11 @@ class Contact extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50.0,
                     backgroundImage: AssetImage('images/iconred.png'),
                   ),
-                  Text(
+                  const Text(
                     "Contact Us",
                     style: TextStyle(
                       fontFamily: 'Pacifico',
@@ -77,9 +78,9 @@ class Contact extends StatelessWidget {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                    margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.email,
                         color: Colors.teal,
                       ),
@@ -94,9 +95,9 @@ class Contact extends StatelessWidget {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                    margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.report_problem,
                         color: Colors.teal,
                       ),
@@ -128,7 +129,7 @@ class NavigationDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: StrokeText(
               text: 'Redfin',
               textStyle: TextStyle(color: Color(0xFFB12929), fontSize: 44,fontWeight: FontWeight.bold),
@@ -137,44 +138,46 @@ class NavigationDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            leading: const Icon(Icons.home),
+            title: const Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LandingPage()),
+                MaterialPageRoute(builder: (context) => const LandingPage()),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.info),
-            title: Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            leading: const Icon(Icons.info),
+            title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.local_offer),
-            title: Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
+            leading: const Icon(Icons.local_offer),
+            title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ForSale()),
+              );             },
+          ),
+          ListTile(
+            leading: const Icon(Icons.price_check),
+            title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.article),
-            title: Text('News',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.contact_page),
-            title: Text('Contact us',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+            leading: const Icon(Icons.contact_page),
+            title: const Text('Contact us',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
             tileColor: Colors.red,
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Contact()),
+                MaterialPageRoute(builder: (context) => const Contact()),
               );
             },
           ),

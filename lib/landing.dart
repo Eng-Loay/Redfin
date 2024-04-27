@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:red_fin/auth/signup.dart';
 import 'package:red_fin/contact.dart';
+import 'package:red_fin/forsale.dart';
 import 'package:stroke_text/stroke_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -372,8 +373,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.local_offer),
             title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
             onTap: () {
-              Navigator.pop(context);
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ForSale()),
+              );             },
           ),
           ListTile(
             leading: const Icon(Icons.article),
