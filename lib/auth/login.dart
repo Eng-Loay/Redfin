@@ -57,7 +57,8 @@ class _LoginState extends State<Login> {
                   const Text("Discover Your Dream Home",style: TextStyle(color: Colors.grey),),
                   Container(height: 20,),
                   const Text("Email",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                  CustomTextForm(hinttext:"Enter Your Email",mycontroller:email,validator: (val){
+                  CustomTextForm(hinttext:"Enter Your Email",mycontroller:email,validator: (val)
+                  {
                     if(val=="")
                     {
                       return "Can't To be Empty";

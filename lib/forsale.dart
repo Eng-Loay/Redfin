@@ -1,18 +1,48 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stroke_text/stroke_text.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'about.dart';
 import 'contact.dart';
 import 'landing.dart';
 import 'offers.dart';
-
-class ForSale extends StatelessWidget {
+import 'componants/nav.dart';
+class ForSale extends StatefulWidget {
   const ForSale({super.key});
 
   @override
+  State<ForSale> createState() => _ForSaleState();
+}
+
+class _ForSaleState extends State<ForSale> {
+  var size,height,width;
+  List<QueryDocumentSnapshot> data= [];
+  getData() async
+  {
+  QuerySnapshot querySnapshot =  await  FirebaseFirestore.instance.collection("HomeDetails").get();
+  data.addAll(querySnapshot.docs);
+  setState(() {
+
+  });
+  }
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        onPressed: (){
+        Navigator.of(context).pushNamed("addHome");
+      },
+      child: Icon(Icons.add),),
         appBar: AppBar(
 
           leading: Builder(
@@ -48,431 +78,73 @@ class ForSale extends StatelessWidget {
             ,
           ],
         ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Container(height: 20,),
-              Row(
-        
-                children: [
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home1.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 25,),
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home2.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 25,),
-              Row(
-                children: [
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home3.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 25,),
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home4.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 25,),
-              Row(
-                children: [
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home5.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 25,),
-                  Container(
-                    width: 190,
-                    height: 237,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('images/Home6.png',fit: BoxFit.cover,),
-                        Row(
-                          children: [
-                            Text(
-                              '\$1\,800\,000',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 40,),
-                            GestureDetector(
-                              onTap: () {
-                                // Add tap functionality here
-                              },
-                              child: SvgPicture.asset(
-                                'images/share_icon.svg',
-                                width:
-                                20.46,
-                                height:
-                                21.2,
-                              ),
-                            ),
-                            SizedBox(width: 2,),
-                            Icon(Icons.favorite_border)
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '4 Bed 5 Bath',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '207 W Clarendon Ave Unit 3D',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-      drawer:NavigationDrawer() ,
-    );
-  }
-}
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          const DrawerHeader(
-            child: StrokeText(
-              text: 'Redfin',
-              textStyle: TextStyle(color: Color(0xFFB12929), fontSize: 44,fontWeight: FontWeight.bold),
-              strokeColor: Colors.white,
-              strokeWidth: 5,
+        body: GridView.builder(
+            shrinkWrap: true,
+            physics: ScrollPhysics(),
+            itemCount: data.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 250,
+              mainAxisSpacing: 13,
+              crossAxisSpacing: 13
             ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LandingPage()),
-              );            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const About()),
-              );            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.local_offer),
-            title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
-            tileColor: Colors.red,
-
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.price_check),
-            title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Offers()),
-              );            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.contact_page),
-            title: const Text('Contact us',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Contact()),
-              );            },
-          ),
-        ],
-      ),
+            itemBuilder: (context, i) {
+              return Container(
+                width: width,
+                height: height,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.network('${data[i]['imageLink']}', fit: BoxFit.cover,),
+                    Row(
+                      children: [
+                        Text(
+                          '${data[i]['price']}',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 40,),
+                        GestureDetector(
+                          onTap: () {
+                            // Add tap functionality here
+                          },
+                          child: SvgPicture.asset(
+                            'images/share_icon.svg',
+                            width: 20.46,
+                            height: 21.2,
+                          ),
+                        ),
+                        SizedBox(width: 2,),
+                        Icon(Icons.favorite_border)
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      '${data[i]['bed']} Bed ${data[i]['bath']} Bath',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      '${data[i]['address']}',
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+        ),
+      drawer:NavigationDrawerss() ,
     );
   }
 }

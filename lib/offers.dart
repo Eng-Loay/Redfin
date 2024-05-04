@@ -8,6 +8,7 @@ import 'about.dart';
 import 'contact.dart';
 import 'forsale.dart';
 import 'landing.dart';
+import 'componants/nav.dart';
 
 class Offers extends StatelessWidget {
   const Offers({super.key});
@@ -445,73 +446,73 @@ class Offers extends StatelessWidget {
 
         ),
       ),
-      drawer:const NavigationDrawer() ,
+      drawer:const NavigationDrawerss() ,
     );
   }
 }
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          const DrawerHeader(
-            child: StrokeText(
-              text: 'Redfin',
-              textStyle: TextStyle(color: Color(0xFFB12929), fontSize: 44,fontWeight: FontWeight.bold),
-              strokeColor: Colors.white,
-              strokeWidth: 5,
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LandingPage()),
-              );            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const About()),
-              );            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.local_offer),
-            title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ForSale()),
-              );             },
-          ),
-          ListTile(
-            leading: const Icon(Icons.price_check),
-            title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            tileColor: Colors.red,
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.contact_page),
-            title: const Text('Contact us',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Contact()),
-              );            },
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class NavigationDrawer extends StatelessWidget {
+//   const NavigationDrawer({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Drawer(
+//       child: ListView(
+//         padding: EdgeInsets.zero,
+//         children: <Widget>[
+//           const DrawerHeader(
+//             child: StrokeText(
+//               text: 'Redfin',
+//               textStyle: TextStyle(color: Color(0xFFB12929), fontSize: 44,fontWeight: FontWeight.bold),
+//               strokeColor: Colors.white,
+//               strokeWidth: 5,
+//             ),
+//           ),
+//           ListTile(
+//             leading: const Icon(Icons.home),
+//             title: const Text('Home',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+//             onTap: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(builder: (context) => const LandingPage()),
+//               );            },
+//           ),
+//           ListTile(
+//             leading: const Icon(Icons.info),
+//             title: const Text('About',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+//             onTap: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(builder: (context) => const About()),
+//               );            },
+//           ),
+//           ListTile(
+//             leading: const Icon(Icons.local_offer),
+//             title: const Text('For Sale',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto')),
+//             onTap: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(builder: (context) => const ForSale()),
+//               );             },
+//           ),
+//           ListTile(
+//             leading: const Icon(Icons.price_check),
+//             title: const Text('Offers',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+//             tileColor: Colors.red,
+//             onTap: () {
+//               Navigator.pop(context);
+//             },
+//           ),
+//           ListTile(
+//             leading: const Icon(Icons.contact_page),
+//             title: const Text('Contact us',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+//             onTap: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(builder: (context) => const Contact()),
+//               );            },
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

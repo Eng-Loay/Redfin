@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:red_fin/auth/signup.dart';
 import 'auth/login.dart';
+import 'categories/add.dart';
 import 'landing.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:red_fin/forsale.dart';
 
 
 void main() async {
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
         "signup" : (context) => const SignUp(),
         "login" : (context) => const Login(),
         "homepage" : (context) => const LandingPage(),
+        "addHome"  : (context) => const AddCategory(),
+        "forsale" : (context) => const ForSale()
 
       },
     );
