@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:red_fin/about.dart';
 import 'package:red_fin/contact.dart';
@@ -5,14 +6,40 @@ import 'package:red_fin/forsale.dart';
 import 'package:red_fin/landing.dart';
 import 'package:red_fin/offers.dart';
 import 'package:stroke_text/stroke_text.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../profile.dart';
 
-class NavigationDrawers extends StatelessWidget {
+class NavigationDrawers extends StatefulWidget {
   final String currentPage;
   final Function(String) onPageSelected;
-
   NavigationDrawers({required this.currentPage, required this.onPageSelected});
+
+  @override
+  State<NavigationDrawers> createState() => _NavigationDrawersState();
+}
+
+class _NavigationDrawersState extends State<NavigationDrawers> {
+  bool _isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
+
+  void _checkLoginStatus() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        setState(() {
+          _isLoggedIn = false;
+        });
+      } else {
+        setState(() {
+          _isLoggedIn = true;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,25 +59,26 @@ class NavigationDrawers extends StatelessWidget {
               strokeWidth: 5,
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text(
-              'ProfilePage',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Roboto',
+          if (_isLoggedIn) // Conditionally show the Profile option
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text(
+                'ProfilePage',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
+                ),
               ),
+              onTap: () {
+                widget.onPageSelected('ProfilePage'); // Update current page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
+              selected: widget.currentPage == 'ProfilePage',
             ),
-            onTap: () {
-              onPageSelected('ProfilePage'); // Update current page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
-              );
-            },
-            selected: currentPage == 'ProfilePage',
-          ),
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text(
@@ -62,13 +90,13 @@ class NavigationDrawers extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onPageSelected('Home'); // Update current page
+              widget.onPageSelected('Home'); // Update current page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LandingPage()),
               );
             },
-            selected: currentPage == 'Home',
+            selected: widget.currentPage == 'Home',
           ),
           ListTile(
             leading: const Icon(Icons.info),
@@ -81,13 +109,13 @@ class NavigationDrawers extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onPageSelected('About'); // Update current page
+              widget.onPageSelected('About'); // Update current page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const About()),
               );
             },
-            selected: currentPage == 'About',
+            selected: widget.currentPage == 'About',
           ),
           ListTile(
             leading: const Icon(Icons.local_offer),
@@ -100,13 +128,13 @@ class NavigationDrawers extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onPageSelected('For Sale'); // Update current page
+              widget.onPageSelected('For Sale'); // Update current page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ForSale()),
               );
             },
-            selected: currentPage == 'For Sale',
+            selected: widget.currentPage == 'For Sale',
 
           ),
           ListTile(
@@ -120,13 +148,13 @@ class NavigationDrawers extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onPageSelected('Offers'); // Update current page
+              widget.onPageSelected('Offers'); // Update current page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Offers()),
               );
             },
-            selected: currentPage == 'Offers',
+            selected: widget.currentPage == 'Offers',
           ),
           ListTile(
             leading: const Icon(Icons.contact_page),
@@ -139,13 +167,13 @@ class NavigationDrawers extends StatelessWidget {
               ),
             ),
             onTap: () {
-              onPageSelected('Contact us'); // Update current page
+              widget.onPageSelected('Contact us'); // Update current page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const Contact()),
               );
             },
-            selected: currentPage == 'Contact us',
+            selected: widget.currentPage == 'Contact us',
           ),
         ],
       ),

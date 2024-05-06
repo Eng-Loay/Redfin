@@ -83,7 +83,7 @@ class _SignUpState extends State<SignUp> {
               if (credential.user != null) {
                 await FirebaseFirestore.instance.collection('users').doc(
                     credential.user!.uid).set({
-                  'username': username.text,
+                  'firstName': username.text,
                 });
               }
 

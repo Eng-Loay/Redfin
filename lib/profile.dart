@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -7,6 +9,51 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  bool _isLoggedIn = false;
+  String? firstName;
+  String? email;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+    _fetchUserData();
+  }
+
+  void _checkLoginStatus() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _isLoggedIn = user != null;
+      });
+    });
+  }
+
+  void _fetchUserData() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+
+      setState(() {
+        firstName = snapshot.data()?['firstName'];
+        email = user.email;
+      });
+    } else {
+      setState(() {
+        email = null;
+      });
+    }
+  }
+
+  void _logout() async {
+    await FirebaseAuth.instance.signOut();
+    GoogleSignIn googleSignIn = GoogleSignIn();
+    googleSignIn.disconnect();
+    setState(() {
+      _isLoggedIn = false;
+    });
+  }
+
   bool showPasswordFields = false;
 
   void togglePasswordFieldsVisibility() {
@@ -20,13 +67,12 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
-        title: const Text('Profile'),
-        centerTitle: true,
+        title: Text('Profile'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -40,37 +86,42 @@ class _ProfilePageState extends State<ProfilePage> {
                   CircleAvatar(
                     radius: 50,
                     backgroundColor: Colors.grey.shade300,
-                    child: const Icon(
+                    child: Icon(
                       Icons.person,
                       size: 50,
                       color: Colors.white,
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.edit),
+                    icon: Icon(Icons.edit),
                     onPressed: () {
                       // Handle edit profile picture button press
                     },
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
-              const Text(
-                'User Name',
+              SizedBox(height: 20),
+              if (firstName != null)
+                SizedBox(height: 15),
+              Text(
+                '$firstName',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const Text(
-                'User@gmail.com',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 15),
+              if (email != null) ...[
+                SizedBox(height: 15),
+                Text(
+                  '$email',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+              SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Username',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.all(10.0),
@@ -78,14 +129,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Email',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.all(10.0),
@@ -93,16 +144,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               GestureDetector(
                 onTap: togglePasswordFieldsVisibility,
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       'Change Password',
                       style: TextStyle(fontSize: 15.0),
                     ),
-                    const SizedBox(width: 150),
+                    SizedBox(width: 150),
                     Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -121,42 +172,42 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               if (showPasswordFields) ...[
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Old Password',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'New Password',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -164,7 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ],
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(top: 30.0),
                 child: Row(
@@ -174,7 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       onTap: () {
                         // Handle delete account tap
                       },
-                      child: const Text(
+                      child: Text(
                         'Delete Account',
                         style: TextStyle(
                           color: Colors.red,
@@ -183,9 +234,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Handle logout tap
+                        _logout();
                       },
-                      child: const Text(
+                      child: Text(
                         'Logout',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
