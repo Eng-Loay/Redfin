@@ -10,8 +10,15 @@ import 'forsale.dart';
 import 'landing.dart';
 import 'componants/nav.dart';
 
-class Offers extends StatelessWidget {
+class Offers extends StatefulWidget {
   const Offers({super.key});
+
+  @override
+  State<Offers> createState() => _OffersState();
+}
+
+class _OffersState extends State<Offers> {
+  String currentPage = 'Offers'; // State is lifted up here
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +64,7 @@ class Offers extends StatelessWidget {
             children: [
               Container(height: 20,),
               Row(
-        
+
                 children: [
                   ClipRect(
                     child: Banner(
@@ -76,7 +83,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home1.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -138,7 +145,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home2.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -204,7 +211,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home3.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -266,7 +273,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home4.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -332,7 +339,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home5.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -394,7 +401,7 @@ class Offers extends StatelessWidget {
                           children: [
                             Image.asset('images/Home6.png',fit: BoxFit.cover,),
                             const Text("\$1\,800\,000",style: TextStyle(fontSize: 12,decoration:TextDecoration.lineThrough,decorationColor: Colors.grey,decorationThickness: 3 ),),
-        
+
                             Row(
                               children: [
                                 const Text(
@@ -446,7 +453,13 @@ class Offers extends StatelessWidget {
 
         ),
       ),
-      drawer:const NavigationDrawerss() ,
+      drawer: NavigationDrawers(currentPage: currentPage, onPageSelected: (page) {
+        setState(() {
+          currentPage = page; // Update current page when a new page is selected
+        });
+      }),
+
+
     );
   }
 }

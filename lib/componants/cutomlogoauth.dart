@@ -10,6 +10,7 @@ class CustomLogoAuth extends StatelessWidget {
     return LottieBuilder.asset(
       'images/home.json',
       width: size.width,
+      height: size.height*0.2,
     );
   }
 }

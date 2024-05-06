@@ -12,8 +12,15 @@ void main() {
   runApp(const Contact());
 }
 
-class Contact extends StatelessWidget {
+class Contact extends StatefulWidget {
   const Contact({Key? key});
+
+  @override
+  State<Contact> createState() => _ContactState();
+}
+
+class _ContactState extends State<Contact> {
+  String currentPage = 'Contact us'; // State is lifted up here
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +126,13 @@ class Contact extends StatelessWidget {
             ),
           ],
         ),
-        drawer: NavigationDrawerss(),
+        drawer: NavigationDrawers(currentPage: currentPage, onPageSelected: (page) {
+          setState(() {
+            currentPage = page; // Update current page when a new page is selected
+          });
+        }),
+
+
       ),
     );
   }

@@ -29,6 +29,7 @@ class _AddCategoryState extends State<AddCategory> {
   TextEditingController bed = TextEditingController();
   TextEditingController bath = TextEditingController();
   TextEditingController address = TextEditingController();
+  TextEditingController size = TextEditingController();
 
   CollectionReference homes = FirebaseFirestore.instance.collection('homes');
   // addHome() async {
@@ -49,7 +50,8 @@ class _AddCategoryState extends State<AddCategory> {
           String homeBed = bed.text;
           String homeBath = bath.text;
           String homeAddress = address.text;
-          String resp = await StoreDate().saveData(price: homePrice, bed: homeBed, bath: homeBath, address: homeAddress, file: _image!);
+          String homeSize= size.text;
+          String resp = await StoreDate().saveData(price: homePrice, bed: homeBed, bath: homeBath, address: homeAddress,size:homeSize, file: _image!);
           Navigator.of(context).pushReplacementNamed("forsale");
           print("added");
         } catch(e){
@@ -98,7 +100,7 @@ class _AddCategoryState extends State<AddCategory> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                 child: CustomTextFormAdd(
-                    hinttext: "Enter Price Of Home",
+                    hinttext: "Enter Price",
                     mycontroller: price,
                     validator: (val) {
                       if (val == "") {
@@ -109,7 +111,7 @@ class _AddCategoryState extends State<AddCategory> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                 child: CustomTextFormAdd(
-                    hinttext: "Enter Number Of Bed",
+                    hinttext: "Enter Number Of Bedrooms",
                     mycontroller: bed,
                     validator: (val) {
                       if (val == "") {
@@ -120,7 +122,7 @@ class _AddCategoryState extends State<AddCategory> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                 child: CustomTextFormAdd(
-                    hinttext: "Enter Number Of Bath",
+                    hinttext: "Enter Number Of Bathrooms",
                     mycontroller: bath,
                     validator: (val) {
                       if (val == "") {
@@ -131,8 +133,19 @@ class _AddCategoryState extends State<AddCategory> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                 child: CustomTextFormAdd(
-                    hinttext: "Enter Adress",
+                    hinttext: "Enter Address",
                     mycontroller: address,
+                    validator: (val) {
+                      if (val == "") {
+                        return "Can't to be Empty";
+                      }
+                    }),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                child: CustomTextFormAdd(
+                    hinttext: "Enter Size",
+                    mycontroller: size,
                     validator: (val) {
                       if (val == "") {
                         return "Can't to be Empty";

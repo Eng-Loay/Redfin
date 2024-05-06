@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:red_fin/auth/signup.dart';
 import 'auth/login.dart';
 import 'categories/add.dart';
@@ -8,6 +7,8 @@ import 'landing.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:red_fin/forsale.dart';
+
+import 'moredetails.dart';
 
 
 void main() async {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         "login" : (context) => const Login(),
         "homepage" : (context) => const LandingPage(),
         "addHome"  : (context) => const AddCategory(),
-        "forsale" : (context) => const ForSale()
+        "forsale" : (context) => const ForSale(),
+        "moredetails" : (context) => const MoreDetails()
 
       },
     );
@@ -124,7 +126,6 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => const LandingPage()),
                       );
                     } else {
-                      // Reset position to initial if max height is not reached
                       setState(() {
                         _top = 800.0; // Reset to initial top position
                       });

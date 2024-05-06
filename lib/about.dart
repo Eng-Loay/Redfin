@@ -9,9 +9,15 @@ import 'landing.dart';
 import 'offers.dart';
 import 'componants/nav.dart';
 
-class About extends StatelessWidget {
+class About extends StatefulWidget {
   const About({super.key});
 
+  @override
+  State<About> createState() => _AboutState();
+}
+
+class _AboutState extends State<About> {
+  String currentPage = 'About'; // State is lifted up here
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +97,11 @@ class About extends StatelessWidget {
 
         ],
       ),
-      drawer:const NavigationDrawerss() ,
+      drawer: NavigationDrawers(currentPage: currentPage, onPageSelected: (page) {
+        setState(() {
+          currentPage = page; // Update current page when a new page is selected
+        });
+      }),
     );
   }
 }

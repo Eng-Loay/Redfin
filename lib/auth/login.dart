@@ -16,6 +16,7 @@ class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   GlobalKey <FormState> formState = GlobalKey<FormState>();
+  bool isLoading =false;
 
   Future signInWithGoogle() async {
     // Trigger the authentication flow
@@ -40,7 +41,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Container(
+      body:isLoading? Center(child: CircularProgressIndicator()): Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
@@ -129,10 +130,19 @@ class _LoginState extends State<Login> {
                 if(formState.currentState!.validate())
                 {
                   try {
+                    isLoading=true;
+                    setState(() {
+
+                    });
                     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
                         email: email.text,
                         password: password.text
+
                     );
+                    isLoading=false;
+                    setState(() {
+
+                    });
                     if(credential.user!.emailVerified)
                     {
                       Navigator.of(context).pushReplacementNamed("homepage");

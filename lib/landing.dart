@@ -21,6 +21,7 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  String currentPage = 'Home'; // State is lifted up here
   bool _isLoggedIn = false;
   @override
   void initState() {
@@ -157,6 +158,10 @@ class _LandingPageState extends State<LandingPage> {
                                 child: IconButton(
                                   icon: const Icon(Icons.search),
                                   onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const ForSale()),
+                                    );
                                     // Handle search button press
                                   },
                                 ),
@@ -168,14 +173,14 @@ class _LandingPageState extends State<LandingPage> {
                       Center(
                         child: Container(
                           margin: const EdgeInsets.only(top: 20),
-                          width: 200,
+                          width: 180,
                           height: 39,
                           decoration: const BoxDecoration(
                             color: Color(0xFF5F5B5B),
                           ),
                           child: const Center(
                             child: Text(
-                              'search',
+                              'Search',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400,
@@ -274,7 +279,7 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.022),
+                  margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.020),
                   child: Visibility(
                     visible: !_isLoggedIn,
                     child: Row(
@@ -338,7 +343,12 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ],
       ),
-      drawer: const NavigationDrawerss(),
+      drawer: NavigationDrawers(currentPage: currentPage, onPageSelected: (page) {
+        setState(() {
+          currentPage = page; // Update current page when a new page is selected
+        });
+      }),
+
     );
   }
 }
