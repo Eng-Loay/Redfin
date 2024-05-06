@@ -35,7 +35,19 @@ class _AboutState extends State<About> {
               ),
             ),
           ),
-          title: SvgPicture.asset('images/Redfin2.svg'),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15,right: 50),
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LandingPage()),
+              );
+            },
+            icon: SvgPicture.asset('images/Redfin2.svg'),
+          ),
+
+        ),
         centerTitle: true,
       ),
       body: Column(

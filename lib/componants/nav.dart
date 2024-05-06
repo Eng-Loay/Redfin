@@ -6,6 +6,8 @@ import 'package:red_fin/landing.dart';
 import 'package:red_fin/offers.dart';
 import 'package:stroke_text/stroke_text.dart';
 
+import '../profile.dart';
+
 class NavigationDrawers extends StatelessWidget {
   final String currentPage;
   final Function(String) onPageSelected;
@@ -18,7 +20,7 @@ class NavigationDrawers extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: StrokeText(
               text: 'Redfin',
               textStyle: TextStyle(
@@ -31,8 +33,27 @@ class NavigationDrawers extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text(
+            leading: const Icon(Icons.person),
+            title: const Text(
+              'ProfilePage',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+            onTap: () {
+              onPageSelected('ProfilePage'); // Update current page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
+            selected: currentPage == 'ProfilePage',
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text(
               'Home',
               style: TextStyle(
                 fontSize: 20,
@@ -44,14 +65,14 @@ class NavigationDrawers extends StatelessWidget {
               onPageSelected('Home'); // Update current page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LandingPage()),
+                MaterialPageRoute(builder: (context) => const LandingPage()),
               );
             },
             selected: currentPage == 'Home',
           ),
           ListTile(
-            leading: Icon(Icons.info),
-            title: Text(
+            leading: const Icon(Icons.info),
+            title: const Text(
               'About',
               style: TextStyle(
                 fontSize: 20,
@@ -63,14 +84,14 @@ class NavigationDrawers extends StatelessWidget {
               onPageSelected('About'); // Update current page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => About()),
+                MaterialPageRoute(builder: (context) => const About()),
               );
             },
             selected: currentPage == 'About',
           ),
           ListTile(
-            leading: Icon(Icons.local_offer),
-            title: Text(
+            leading: const Icon(Icons.local_offer),
+            title: const Text(
               'For Sale',
               style: TextStyle(
                 fontSize: 20,
@@ -82,15 +103,15 @@ class NavigationDrawers extends StatelessWidget {
               onPageSelected('For Sale'); // Update current page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ForSale()),
+                MaterialPageRoute(builder: (context) => const ForSale()),
               );
             },
             selected: currentPage == 'For Sale',
 
           ),
           ListTile(
-            leading: Icon(Icons.price_check),
-            title: Text(
+            leading: const Icon(Icons.price_check),
+            title: const Text(
               'Offers',
               style: TextStyle(
                 fontSize: 20,
@@ -102,14 +123,14 @@ class NavigationDrawers extends StatelessWidget {
               onPageSelected('Offers'); // Update current page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Offers()),
+                MaterialPageRoute(builder: (context) => const Offers()),
               );
             },
             selected: currentPage == 'Offers',
           ),
           ListTile(
-            leading: Icon(Icons.contact_page),
-            title: Text(
+            leading: const Icon(Icons.contact_page),
+            title: const Text(
               'Contact us',
               style: TextStyle(
                 fontSize: 20,
@@ -121,7 +142,7 @@ class NavigationDrawers extends StatelessWidget {
               onPageSelected('Contact us'); // Update current page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Contact()),
+                MaterialPageRoute(builder: (context) => const Contact()),
               );
             },
             selected: currentPage == 'Contact us',

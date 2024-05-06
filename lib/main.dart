@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:red_fin/auth/signup.dart';
+import 'package:red_fin/profile.dart';
 import 'auth/login.dart';
 import 'categories/add.dart';
 import 'landing.dart';
@@ -31,7 +32,9 @@ class MyApp extends StatelessWidget {
         "homepage" : (context) => const LandingPage(),
         "addHome"  : (context) => const AddCategory(),
         "forsale" : (context) => const ForSale(),
-        "moredetails" : (context) => const MoreDetails()
+        "moredetails" : (context) => const MoreDetails(),
+        "ProfilePage" : (context) =>  ProfilePage(),
+
 
       },
     );

@@ -65,8 +65,17 @@ class _ForSaleState extends State<ForSale> {
           ),
         ),
         title: Padding(
-          padding: EdgeInsets.only(top: 15),
-          child: SvgPicture.asset('images/Redfin2.svg'),
+          padding: const EdgeInsets.only(top: 15),
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LandingPage()),
+              );
+            },
+            icon: SvgPicture.asset('images/Redfin2.svg'),
+          ),
+
         ),
         centerTitle: true,
         actions: <Widget>[

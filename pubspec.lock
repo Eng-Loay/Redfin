@@ -105,6 +105,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+  confirm_dialog:
+    dependency: "direct dev"
+    description:
+      name: confirm_dialog
+      sha256: faf16fc359eb7c0024ec43f94653e40683ca99ff2e9fdf66cb393300a61f6e46
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   cross_file:
     dependency: transitive
     description:
@@ -122,7 +130,7 @@ packages:
     source: hosted
     version: "3.0.3"
   cupertino_icons:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       name: cupertino_icons
       sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
@@ -311,7 +319,7 @@ packages:
     source: hosted
     version: "2.0.19"
   flutter_rating_bar:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       name: flutter_rating_bar
       sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
@@ -393,7 +401,7 @@ packages:
     source: hosted
     version: "2.3.1"
   http:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       name: http
       sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
@@ -409,7 +417,7 @@ packages:
     source: hosted
     version: "4.0.2"
   image_picker:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
       name: image_picker
       sha256: "33974eca2e87e8b4e3727f1b94fa3abcb25afe80b6bc2c4d449a0e150aedf720"
@@ -577,21 +585,21 @@ packages:
     source: hosted
     version: "2.1.8"
   rive:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: rive
-      sha256: befdee09230cf16a13a2914828ccc5e55d9b76ee5c3400957c0963533010f50a
+      sha256: "95690a0fb4f6e195c53b217ab3cc0e0b0f443c670adbdee9d57d636a36b82b18"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.3"
+    version: "0.13.2"
   rive_common:
     dependency: transitive
     description:
       name: rive_common
-      sha256: "496cdd0bc59481b38701a3c31693cfc74942df18cd3d72b9d386f4beed58a8d5"
+      sha256: "3eee68fcab3e0882090cea5a8cf7acea7967f469a34a2580322575603b094435"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.7"
+    version: "0.4.5"
   sky_engine:
     dependency: transitive
     description: flutter
