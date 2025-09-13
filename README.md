@@ -1,6 +1,6 @@
 # Redfin - Real Estate Mobile Application
 
-A comprehensive Flutter-based real estate application that allows users to discover, browse, and manage property listings. The app provides a modern interface for property search, user authentication, and property management features.
+A comprehensive Flutter-based mobile real estate application for Android and iOS that allows users to discover, browse, and manage property listings. The app provides a modern interface for property search, user authentication, and property management features.
 
 ## 📋 Business Overview
 
@@ -44,7 +44,7 @@ To revolutionize the real estate experience by providing an intuitive, user-frie
 - **Firebase Integration**: Authentication, Firestore database, and Cloud Storage
 - **Image Handling**: Upload and display property images
 - **Real-time Data**: Live updates from Firebase Firestore
-- **Cross-platform**: Supports Android, iOS, Web, Windows, macOS, and Linux
+- **Cross-platform**: Supports Android and iOS mobile platforms
 
 ## 🚀 Getting Started
 
@@ -52,7 +52,8 @@ To revolutionize the real estate experience by providing an intuitive, user-frie
 - Flutter SDK (>=3.3.0)
 - Dart SDK
 - Firebase project setup
-- Android Studio / Xcode (for mobile development)
+- Android Studio (for Android development)
+- Xcode (for iOS development)
 - Git
 
 ### Installation
@@ -87,11 +88,7 @@ To revolutionize the real estate experience by providing an intuitive, user-frie
 ## 📱 Platform Support
 
 - ✅ **Android** - Full support
-- ✅ **iOS** - Full support  
-- ✅ **Web** - Full support
-- ✅ **Windows** - Full support
-- ✅ **macOS** - Full support
-- ✅ **Linux** - Full support
+- ✅ **iOS** - Full support
 
 ## 🏗️ Project Structure
 
@@ -257,18 +254,6 @@ flutter build appbundle --release
 ### iOS
 ```bash
 flutter build ios --release
-```
-
-### Web
-```bash
-flutter build web --release
-```
-
-### Desktop
-```bash
-flutter build windows --release
-flutter build macos --release
-flutter build linux --release
 ```
 
 ## 🧪 Testing
